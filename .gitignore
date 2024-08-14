@@ -1,0 +1,9 @@
+
+
+# api
+DataTransmissionAPI/DataTransmissionAPI/bin
+DataTransmissionAPI/DataTransmissionAPI/obj
+DataTransmissionAPI/.vs
+DataTransmissionAPI/DataTransmissionAPI/Properties/PublishProfiles
+DataTransmissionAPI/DataTransmissionAPI/appsettings.Development.json
+DataTransmissionAPI/DataTransmissionAPI/DataTransmissionAPI.user

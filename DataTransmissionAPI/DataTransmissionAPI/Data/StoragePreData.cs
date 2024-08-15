@@ -15,8 +15,5 @@ namespace DataTransmissionAPI.Data
         public string Unit { get; set; }
         public DateTime Time { get; set; }
         public bool DeviceStatus { get; set; }
-
-        [ForeignKey("ConstructionCode")]
-        public virtual Construction construction { get; set; }
     }
 }

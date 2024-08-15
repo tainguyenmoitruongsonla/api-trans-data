@@ -45,15 +45,8 @@ namespace DataTransmissionAPI.Helpers
             //functions
             CreateMap<Functions, FunctionDto>().ReverseMap();
 
-            //Construction
-            CreateMap<Construction, ConstructionDto>().ReverseMap();
-
             //StoragePreData
-            CreateMap<StoragePreData, StoragePreDataDto>()
-                .ForMember(dest => dest.construction, opt =>
-                {
-                    opt.MapFrom((src, dest) => dest.construction);
-                }).ReverseMap();
+            CreateMap<StoragePreData, StoragePreDataDto>().ReverseMap();
 
             //-------------Other mapper--------------------
             CreateMap<Station, StationDto>()

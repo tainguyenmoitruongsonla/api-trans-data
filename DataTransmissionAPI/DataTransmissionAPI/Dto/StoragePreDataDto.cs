@@ -10,7 +10,5 @@
         public string Unit { get; set; }
         public DateTime Time { get; set; }
         public bool DeviceStatus { get; set; }
-
-        public ConstructionDto? construction { get; set; }
     }
 }

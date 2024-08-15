@@ -28,8 +28,6 @@ namespace DataTransmissionAPI.Service
             _context.Database.SetCommandTimeout(120);
 
             var query = _context.StoragePreData!
-                .Where(x => x.Id > 0)
-                .Include(x => x.construction)
                 .OrderBy(x => x.Id)
                 .AsQueryable();
 
@@ -53,21 +51,20 @@ namespace DataTransmissionAPI.Service
         {
             var query = _context.StoragePreData!
                 .Where(x => x.Id > 0)
-                .Include(x => x.construction)
                 .OrderBy(x => x.Id)
                 .AsQueryable();
 
-            var station = await query.SingleOrDefaultAsync(ct => ct.Id == Id);
+            var PreData = await query.SingleOrDefaultAsync(ct => ct.Id == Id);
 
-            if (station == null)
+            if (PreData == null)
             {
                 // Handle the case where the record is not found
                 return null;
             }
 
-            var stationDto = _mapper.Map<StoragePreDataDto>(station);
+            var PreDataDto = _mapper.Map<StoragePreDataDto>(PreData);
 
-            return stationDto;
+            return PreDataDto;
         }
 
         // Method to save or update a CT_ThongTin entity

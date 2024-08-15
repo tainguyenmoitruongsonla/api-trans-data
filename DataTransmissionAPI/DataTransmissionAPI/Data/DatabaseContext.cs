@@ -26,6 +26,9 @@ namespace DataTransmissionAPI.Data
         public DbSet<UserDashboards> UserDashboards { get; set; }
         public DbSet<RoleDashboards> RoleDashboards { get; set; }
         public DbSet<Functions> Functions { get; set; }
+        public DbSet<StoragePreData> StoragePreData { get; set; }
+        public DbSet<Construction> Construction { get; set; }
+
 
         //Other database
 

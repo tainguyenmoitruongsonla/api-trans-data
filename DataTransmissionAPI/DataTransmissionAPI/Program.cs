@@ -26,6 +26,7 @@ services.AddScoped<PermissionService>();
 
 services.AddScoped<StationService>();
 services.AddScoped<WaterLevelDataService>();
+services.AddScoped<StoragePreDataService>();
 
 services.AddIdentity<AspNetUsers, AspNetRoles>(options =>
 {

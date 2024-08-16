@@ -49,15 +49,6 @@ namespace DataTransmissionAPI.Helpers
             CreateMap<StoragePreData, StoragePreDataDto>().ReverseMap();
 
             //-------------Other mapper--------------------
-            CreateMap<Station, StationDto>()
-                .ForMember(dest => dest.water_level_data, opt =>
-                {
-                    opt.MapFrom((src, dest) => dest.water_level_data);
-                }).ReverseMap();
-
-            CreateMap<WaterLevelData, WaterLevelDataDto>()
-                .ForMember(dest => dest.station_name, opt => opt.MapFrom((src, dest) => src.station!.id == dest.station_id ? src.station.name : null))
-                .ReverseMap();
 
         }
     }

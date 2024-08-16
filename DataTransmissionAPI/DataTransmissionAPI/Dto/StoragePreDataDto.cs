@@ -8,7 +8,7 @@
         public string ParameterName { get; set; }
         public double Value { get; set; }
         public string Unit { get; set; }
-        public DateTime Time { get; set; }
+        public string Time { get; set; }
         public bool DeviceStatus { get; set; }
     }
 }

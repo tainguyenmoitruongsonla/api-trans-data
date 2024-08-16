@@ -16,16 +16,6 @@ services.AddDbContext<DatabaseContext>();
 
 services.AddAutoMapper(typeof(Program));
 
-services.AddScoped<IAuthService, AuthService>();
-services.AddScoped<UserService>();
-services.AddScoped<RoleService>();
-services.AddScoped<DashboardService>();
-services.AddScoped<RoleDashboardService>();
-services.AddScoped<UserDashboardService>();
-services.AddScoped<PermissionService>();
-
-services.AddScoped<StationService>();
-services.AddScoped<WaterLevelDataService>();
 services.AddScoped<StoragePreDataService>();
 
 services.AddIdentity<AspNetUsers, AspNetRoles>(options =>
@@ -134,23 +124,5 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
-
-// Seed the database
-using (var scope = app.Services.CreateScope())
-{
-    try
-    {
-        var dbContext = scope.ServiceProvider.GetRequiredService<DatabaseContext>();
-        var userManager = scope.ServiceProvider.GetRequiredService<UserManager<AspNetUsers>>();
-        var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<AspNetRoles>>();
-
-        await dbContext.Database.MigrateAsync();
-        await SeedData.InitializeAsync(dbContext, userManager, roleManager);
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine($"Error during database seeding: {ex.Message}");
-    }
-}
 
 app.Run();

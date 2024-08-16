@@ -25,7 +25,6 @@ namespace DataTransmissionAPI.Service
         // Method to retrieve a list of CT_ThongTin entities based on specified filters
         public async Task<List<StoragePreDataDto>> GetAllAsync()
         {
-            _context.Database.SetCommandTimeout(120);
 
             var query = _context.StoragePreData!
                 .OrderBy(x => x.Id)
@@ -35,12 +34,6 @@ namespace DataTransmissionAPI.Service
 
             // Map the result to DTOs
             var stationDtos = _mapper.Map<List<StoragePreDataDto>>(stations);
-
-            // Further processing on DTOs
-            //foreach (var dto in stationDtos)
-            //{
-            //    dto.water_level_data = _mapper.Map<List<WaterLevelDataDto>>(await _context.WaterLevelData.Where(x => x.station_id == dto.id).OrderByDescending(e => e.date).Take(10).ToListAsync());
-            //}
 
             // Return the list of DTOs
             return stationDtos;
